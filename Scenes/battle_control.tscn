@@ -49,8 +49,18 @@ region_rect = Rect2(1487.24, 943.957, 160.012, 21.9258)
 position = Vector2(256, 292)
 scale = Vector2(2, 2)
 
-[node name="Bulbasaur" parent="Pokemon" instance=ExtResource("16_p21ck")]
+[node name="Player Pokemon" type="Node2D" parent="Pokemon"]
+
+[node name="Bulbasaur" parent="Pokemon/Player Pokemon" instance=ExtResource("16_p21ck")]
 position = Vector2(-70, 44)
+
+[node name="PlayerSpriteLocation" type="Marker2D" parent="Pokemon/Player Pokemon"]
+position = Vector2(-70, 44)
+
+[node name="Foe Pokemon" type="Node2D" parent="Pokemon"]
+
+[node name="FoeSpriteLocation" type="Marker2D" parent="Pokemon/Foe Pokemon"]
+position = Vector2(58.5, -2)
 
 [node name="MenuBase" type="TextureRect" parent="."]
 layout_mode = 1
