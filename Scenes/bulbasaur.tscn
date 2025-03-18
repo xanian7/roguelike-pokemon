@@ -8,6 +8,8 @@
 
 [node name="Bulbasaur" type="Node2D"]
 script = ExtResource("1_3758k")
+pokemon_name = "Bulbasaur"
+nickname = "Bob"
 back_sprite = ExtResource("2_xfunp")
 front_sprite = ExtResource("3_fh42p")
 shiny_back_sprite = ExtResource("4_edtew")
