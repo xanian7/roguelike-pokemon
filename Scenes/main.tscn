@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://scs65etqt8it"]
+
+[ext_resource type="PackedScene" uid="uid://b3vvajln35ign" path="res://Scenes/battle_control.tscn" id="1_jjgbg"]
+
+[node name="Main" type="Node2D"]
+
+[node name="BattleUI" type="CanvasLayer" parent="."]
+
+[node name="BattleControl" parent="BattleUI" instance=ExtResource("1_jjgbg")]
