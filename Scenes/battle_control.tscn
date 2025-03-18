@@ -1,5 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b3vvajln35ign"]
 
+[ext_resource type="Script" uid="uid://douckv7agr4ee" path="res://Scripts/battle_control.gd" id="1_4ka1c"]
 [ext_resource type="Texture2D" uid="uid://d3aqdnkuwuvgh" path="res://Assets/DS DSi - Pokemon Diamond Pearl - Battle Backgrounds.png" id="1_bi8lk"]
 [ext_resource type="Texture2D" uid="uid://g5fcelmdouvp" path="res://Assets/Loyalty Battle UI/battleFoeBoxD.png" id="1_rs67o"]
 [ext_resource type="Texture2D" uid="uid://7uhxsiem02w3" path="res://Assets/Loyalty Battle UI/battleMessage.png" id="2_byc7v"]
@@ -15,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://b1kdahpei76q8" path="res://Assets/Loyalty Battle UI/selectedpokemonbutton.png" id="10_rtvvy"]
 [ext_resource type="Texture2D" uid="uid://kbv6tqiyphde" path="res://Assets/Loyalty Battle UI/runbutton.png" id="11_rkybr"]
 [ext_resource type="Texture2D" uid="uid://dwr0lx24mvcw7" path="res://Assets/Loyalty Battle UI/selectedrunbutton.png" id="12_1r8gu"]
-[ext_resource type="PackedScene" uid="uid://d3id7en5wblqk" path="res://Scenes/bulbasaur.tscn" id="16_p21ck"]
 
 [node name="BattleControl" type="Control"]
 layout_mode = 3
@@ -30,6 +30,7 @@ offset_right = 256.0
 offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4ka1c")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(255, 278)
@@ -49,17 +50,18 @@ region_rect = Rect2(1487.24, 943.957, 160.012, 21.9258)
 position = Vector2(256, 292)
 scale = Vector2(2, 2)
 
-[node name="Player Pokemon" type="Node2D" parent="Pokemon"]
+[node name="PlayerPokemon" type="Node2D" parent="Pokemon"]
+unique_name_in_owner = true
 
-[node name="Bulbasaur" parent="Pokemon/Player Pokemon" instance=ExtResource("16_p21ck")]
+[node name="PlayerSpriteLocation" type="Marker2D" parent="Pokemon/PlayerPokemon"]
+unique_name_in_owner = true
 position = Vector2(-70, 44)
 
-[node name="PlayerSpriteLocation" type="Marker2D" parent="Pokemon/Player Pokemon"]
-position = Vector2(-70, 44)
+[node name="FoePokemon" type="Node2D" parent="Pokemon"]
+unique_name_in_owner = true
 
-[node name="Foe Pokemon" type="Node2D" parent="Pokemon"]
-
-[node name="FoeSpriteLocation" type="Marker2D" parent="Pokemon/Foe Pokemon"]
+[node name="FoeSpriteLocation" type="Marker2D" parent="Pokemon/FoePokemon"]
+unique_name_in_owner = true
 position = Vector2(58.5, -2)
 
 [node name="MenuBase" type="TextureRect" parent="."]
