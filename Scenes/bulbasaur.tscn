@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3id7en5wblqk"]
+
+[ext_resource type="Script" uid="uid://cocp22appxbx" path="res://Scripts/pokemon.gd" id="1_3758k"]
+[ext_resource type="Texture2D" uid="uid://bw8r3a1sabudo" path="res://Assets/pokemon/bulbasaur (2).png" id="2_xfunp"]
+[ext_resource type="Texture2D" uid="uid://b2j2kf8c1jfky" path="res://Assets/pokemon/bulbasaur (1).png" id="3_fh42p"]
+[ext_resource type="Texture2D" uid="uid://gsmkbmdbdetk" path="res://Assets/pokemon/bulbasaur (3).png" id="4_edtew"]
+[ext_resource type="Texture2D" uid="uid://cpdmbdrlksm1w" path="res://Assets/pokemon/bulbasaur (4).png" id="5_lg47h"]
+
+[node name="Bulbasaur" type="Node2D"]
+script = ExtResource("1_3758k")
+back_sprite = ExtResource("2_xfunp")
+front_sprite = ExtResource("3_fh42p")
+shiny_back_sprite = ExtResource("4_edtew")
+shiny_front_sprite = ExtResource("3_fh42p")
+bag_sprite = ExtResource("5_lg47h")
+shiny_bag_sprite = ExtResource("5_lg47h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3vvajln35ign"]
+[gd_scene load_steps=17 format=3 uid="uid://b3vvajln35ign"]
 
 [ext_resource type="Texture2D" uid="uid://d3aqdnkuwuvgh" path="res://Assets/DS DSi - Pokemon Diamond Pearl - Battle Backgrounds.png" id="1_bi8lk"]
 [ext_resource type="Texture2D" uid="uid://g5fcelmdouvp" path="res://Assets/Loyalty Battle UI/battleFoeBoxD.png" id="1_rs67o"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://b1kdahpei76q8" path="res://Assets/Loyalty Battle UI/selectedpokemonbutton.png" id="10_rtvvy"]
 [ext_resource type="Texture2D" uid="uid://kbv6tqiyphde" path="res://Assets/Loyalty Battle UI/runbutton.png" id="11_rkybr"]
 [ext_resource type="Texture2D" uid="uid://dwr0lx24mvcw7" path="res://Assets/Loyalty Battle UI/selectedrunbutton.png" id="12_1r8gu"]
+[ext_resource type="PackedScene" uid="uid://d3id7en5wblqk" path="res://Scenes/bulbasaur.tscn" id="16_p21ck"]
 
 [node name="BattleControl" type="Control"]
 layout_mode = 3
@@ -44,6 +45,13 @@ texture = ExtResource("1_bi8lk")
 region_enabled = true
 region_rect = Rect2(1487.24, 943.957, 160.012, 21.9258)
 
+[node name="Pokemon" type="Node2D" parent="."]
+position = Vector2(256, 292)
+scale = Vector2(2, 2)
+
+[node name="Bulbasaur" parent="Pokemon" instance=ExtResource("16_p21ck")]
+position = Vector2(-70, 44)
+
 [node name="MenuBase" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -68,19 +76,17 @@ texture = ExtResource("3_0y364")
 
 [node name="Text" type="Control" parent="Options"]
 anchors_preset = 0
-offset_right = 125.0
+offset_right = 247.0
 offset_bottom = 95.0
-scale = Vector2(2, 1)
 
 [node name="Label" type="Label" parent="Options/Text"]
 layout_mode = 0
-offset_left = 13.5
-offset_top = 14.0
-offset_right = 110.5
-offset_bottom = 53.0
-scale = Vector2(1, 1.73333)
+offset_left = 30.0
+offset_top = 10.0
+offset_right = 147.0
+offset_bottom = 84.0
 theme_override_fonts/font = ExtResource("4_p21ck")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 30
 text = "What will
 ______ do?"
 vertical_alignment = 1
