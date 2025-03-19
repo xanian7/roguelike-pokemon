@@ -4,6 +4,7 @@ extends Node2D
 
 @export var pokemon_name: String
 @export var nickname: String
+@export var is_in_party: bool
 
 #Sprites
 @export var back_sprite: CompressedTexture2D
@@ -19,10 +20,10 @@ extends Node2D
 @export var evolution: Node2D
 
 #Moves
-@export var move_slot_1: String
-@export var move_slot_2: String
-@export var move_slot_3: String
-@export var move_slot_4: String
+@export var move_slot_1: PackedScene
+@export var move_slot_2: PackedScene
+@export var move_slot_3: PackedScene
+@export var move_slot_4: PackedScene
 
 #Base Stats
 @export var hp_base: int
@@ -64,10 +65,13 @@ var current_special_attack: int
 var current_special_defense: int
 var current_speed: int
 
+
+
 func _ready():
 	set_sprite()
 
 func set_sprite():
-	#if is_in_group("party"):
-		#pass
-	sprite_2d.texture = back_sprite
+	if is_in_party:
+		sprite_2d.texture = back_sprite
+	else:
+		sprite_2d.texture = front_sprite

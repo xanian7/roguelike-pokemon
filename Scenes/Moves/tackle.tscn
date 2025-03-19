@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dltnjr0adwqqu"]
+
+[ext_resource type="Script" uid="uid://djtcovv6eb50w" path="res://Scripts/move.gd" id="1_to15c"]
+[ext_resource type="Texture2D" uid="uid://84ejujnnem22" path="res://Assets/Loyalty Battle UI/normal.png" id="2_f7xty"]
+[ext_resource type="Texture2D" uid="uid://bcmwqybwv71l6" path="res://Assets/Loyalty Battle UI/normal-selected.png" id="3_xmut0"]
+
+[node name="Tackle" type="Node2D"]
+script = ExtResource("1_to15c")
+button_texture = ExtResource("2_f7xty")
+pressed_button_texture = ExtResource("3_xmut0")
+type = "Normal"
+move_name = "Tackle"
+damage = 40
+accuracy = 95
+attack_type = "Normal"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtnaycndn5j4e"]
+
+[ext_resource type="Script" uid="uid://crlrrchlwjko5" path="res://Scripts/game_manager.gd" id="1_oj352"]
+[ext_resource type="PackedScene" uid="uid://cndlxwgnu2xqt" path="res://Scenes/Pokemon/charmander.tscn" id="2_e5fcp"]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource("1_oj352")
+foe_pokemon = ExtResource("2_e5fcp")

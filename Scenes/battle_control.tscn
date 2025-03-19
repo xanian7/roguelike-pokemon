@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3vvajln35ign"]
+[gd_scene load_steps=20 format=3 uid="uid://b3vvajln35ign"]
 
 [ext_resource type="Script" uid="uid://douckv7agr4ee" path="res://Scripts/battle_control.gd" id="1_4ka1c"]
 [ext_resource type="Texture2D" uid="uid://d3aqdnkuwuvgh" path="res://Assets/DS DSi - Pokemon Diamond Pearl - Battle Backgrounds.png" id="1_bi8lk"]
@@ -10,12 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://om2un7k88m3r" path="res://Assets/Loyalty Battle UI/battlePlayerBoxS.png" id="4_thhs7"]
 [ext_resource type="Texture2D" uid="uid://ck60a50jkaeol" path="res://Assets/Loyalty Battle UI/fightbutton.png" id="5_4ka1c"]
 [ext_resource type="Texture2D" uid="uid://ce0hqkkmd6fkd" path="res://Assets/Loyalty Battle UI/selectedfightbutton.png" id="6_1ikbi"]
+[ext_resource type="Script" uid="uid://buejhaq6xoes" path="res://Scripts/question_dialogue.gd" id="6_nujl4"]
 [ext_resource type="Texture2D" uid="uid://c0r42x0mf2olp" path="res://Assets/Loyalty Battle UI/bagbutton.png" id="7_nujl4"]
 [ext_resource type="Texture2D" uid="uid://qotawh4r8l8q" path="res://Assets/Loyalty Battle UI/selectedbagbutton.png" id="8_wj4bj"]
 [ext_resource type="Texture2D" uid="uid://cc8wa8ssca6o7" path="res://Assets/Loyalty Battle UI/pokemonbutton.png" id="9_4i06g"]
 [ext_resource type="Texture2D" uid="uid://b1kdahpei76q8" path="res://Assets/Loyalty Battle UI/selectedpokemonbutton.png" id="10_rtvvy"]
 [ext_resource type="Texture2D" uid="uid://kbv6tqiyphde" path="res://Assets/Loyalty Battle UI/runbutton.png" id="11_rkybr"]
 [ext_resource type="Texture2D" uid="uid://dwr0lx24mvcw7" path="res://Assets/Loyalty Battle UI/selectedrunbutton.png" id="12_1r8gu"]
+[ext_resource type="Script" uid="uid://cp0tp6chs757k" path="res://Scripts/player_pokemon_label.gd" id="16_4ka1c"]
+[ext_resource type="Texture2D" uid="uid://84ejujnnem22" path="res://Assets/Loyalty Battle UI/normal.png" id="16_nujl4"]
 
 [node name="BattleControl" type="Control"]
 layout_mode = 3
@@ -46,6 +49,13 @@ texture = ExtResource("1_bi8lk")
 region_enabled = true
 region_rect = Rect2(1487.24, 943.957, 160.012, 21.9258)
 
+[node name="FoeGround" type="Sprite2D" parent="."]
+position = Vector2(379, 311)
+scale = Vector2(2, 2)
+texture = ExtResource("1_bi8lk")
+region_enabled = true
+region_rect = Rect2(1615.59, 886.878, 134.115, 44.6083)
+
 [node name="Pokemon" type="Node2D" parent="."]
 position = Vector2(256, 292)
 scale = Vector2(2, 2)
@@ -62,7 +72,7 @@ unique_name_in_owner = true
 
 [node name="FoeSpriteLocation" type="Marker2D" parent="Pokemon/FoePokemon"]
 unique_name_in_owner = true
-position = Vector2(58.5, -2)
+position = Vector2(61.5, -7.5)
 
 [node name="MenuBase" type="TextureRect" parent="."]
 layout_mode = 1
@@ -91,7 +101,7 @@ anchors_preset = 0
 offset_right = 247.0
 offset_bottom = 95.0
 
-[node name="Label" type="Label" parent="Options/Text"]
+[node name="QuestionDialogue" type="Label" parent="Options/Text"]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 10.0
@@ -102,6 +112,7 @@ theme_override_font_sizes/font_size = 30
 text = "What will
 ______ do?"
 vertical_alignment = 1
+script = ExtResource("6_nujl4")
 
 [node name="Options" type="Control" parent="Options"]
 anchors_preset = 0
@@ -162,12 +173,71 @@ grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_bi8lk")
 
-[node name="FoeGround" type="Sprite2D" parent="."]
-position = Vector2(379, 311)
-scale = Vector2(2, 2)
-texture = ExtResource("1_bi8lk")
-region_enabled = true
-region_rect = Rect2(1615.59, 886.878, 134.115, 44.6083)
+[node name="Slot1" type="TextureButton" parent="Attacks"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 6.0
+offset_right = 188.0
+offset_bottom = 52.0
+texture_normal = ExtResource("16_nujl4")
+
+[node name="Label" type="Label" parent="Attacks/Slot1"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 8.0
+offset_right = 91.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("4_p21ck")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="Slot2" type="TextureButton" parent="Attacks"]
+offset_left = 200.0
+offset_top = 6.0
+offset_right = 372.0
+offset_bottom = 52.0
+texture_normal = ExtResource("16_nujl4")
+
+[node name="Label" type="Label" parent="Attacks/Slot2"]
+offset_left = 51.0
+offset_top = 8.0
+offset_right = 91.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("4_p21ck")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="Slot3" type="TextureButton" parent="Attacks"]
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 188.0
+offset_bottom = 94.0
+texture_normal = ExtResource("16_nujl4")
+
+[node name="Label" type="Label" parent="Attacks/Slot3"]
+offset_left = 51.0
+offset_top = 8.0
+offset_right = 91.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("4_p21ck")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="Slot4" type="TextureButton" parent="Attacks"]
+offset_left = 200.0
+offset_top = 48.0
+offset_right = 372.0
+offset_bottom = 94.0
+texture_normal = ExtResource("16_nujl4")
+
+[node name="Label" type="Label" parent="Attacks/Slot4"]
+offset_left = 51.0
+offset_top = 8.0
+offset_right = 91.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("4_p21ck")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
 
 [node name="PlayerHealth" type="TextureRect" parent="."]
 layout_mode = 1
@@ -184,6 +254,17 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("4_thhs7")
 
+[node name="PlayerPokemonLabel" type="Label" parent="PlayerHealth"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 17.0
+offset_right = 188.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("4_p21ck")
+theme_override_font_sizes/font_size = 30
+text = "Bulbasuar"
+script = ExtResource("16_4ka1c")
+
 [node name="FoeHealth" type="TextureRect" parent="."]
 layout_mode = 1
 offset_left = -20.0
@@ -191,3 +272,5 @@ offset_top = 140.0
 offset_right = 280.0
 offset_bottom = 226.0
 texture = ExtResource("1_rs67o")
+
+[connection signal="pressed" from="Options/Options/Fight" to="." method="_on_fight_pressed"]
