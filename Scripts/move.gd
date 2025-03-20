@@ -8,3 +8,5 @@ extends Node2D
 @export var damage: int
 @export var accuracy: int
 @export var attack_type: String
+@export var max_pp: int
+@export var pp: int

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b3vvajln35ign"]
+[gd_scene load_steps=22 format=3 uid="uid://b3vvajln35ign"]
 
 [ext_resource type="Script" uid="uid://douckv7agr4ee" path="res://Scripts/battle_control.gd" id="1_4ka1c"]
 [ext_resource type="Texture2D" uid="uid://d3aqdnkuwuvgh" path="res://Assets/DS DSi - Pokemon Diamond Pearl - Battle Backgrounds.png" id="1_bi8lk"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dwr0lx24mvcw7" path="res://Assets/Loyalty Battle UI/selectedrunbutton.png" id="12_1r8gu"]
 [ext_resource type="Script" uid="uid://cp0tp6chs757k" path="res://Scripts/player_pokemon_label.gd" id="16_4ka1c"]
 [ext_resource type="Texture2D" uid="uid://84ejujnnem22" path="res://Assets/Loyalty Battle UI/normal.png" id="16_nujl4"]
+[ext_resource type="Texture2D" uid="uid://be5a84baay608" path="res://Assets/Loyalty Battle UI/healthbar.png" id="19_4i06g"]
+[ext_resource type="Script" uid="uid://foawvulrthi1" path="res://Scripts/foe_pokemon_label.gd" id="20_wj4bj"]
 
 [node name="BattleControl" type="Control"]
 layout_mode = 3
@@ -192,6 +194,7 @@ theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="Slot2" type="TextureButton" parent="Attacks"]
+layout_mode = 0
 offset_left = 200.0
 offset_top = 6.0
 offset_right = 372.0
@@ -199,6 +202,7 @@ offset_bottom = 52.0
 texture_normal = ExtResource("16_nujl4")
 
 [node name="Label" type="Label" parent="Attacks/Slot2"]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 8.0
 offset_right = 91.0
@@ -208,6 +212,7 @@ theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="Slot3" type="TextureButton" parent="Attacks"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 48.0
 offset_right = 188.0
@@ -215,6 +220,7 @@ offset_bottom = 94.0
 texture_normal = ExtResource("16_nujl4")
 
 [node name="Label" type="Label" parent="Attacks/Slot3"]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 8.0
 offset_right = 91.0
@@ -224,6 +230,7 @@ theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
 [node name="Slot4" type="TextureButton" parent="Attacks"]
+layout_mode = 0
 offset_left = 200.0
 offset_top = 48.0
 offset_right = 372.0
@@ -231,6 +238,7 @@ offset_bottom = 94.0
 texture_normal = ExtResource("16_nujl4")
 
 [node name="Label" type="Label" parent="Attacks/Slot4"]
+layout_mode = 0
 offset_left = 51.0
 offset_top = 8.0
 offset_right = 91.0
@@ -265,6 +273,14 @@ theme_override_font_sizes/font_size = 30
 text = "Bulbasuar"
 script = ExtResource("16_4ka1c")
 
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="PlayerHealth"]
+offset_left = 108.0
+offset_top = 52.0
+offset_right = 204.0
+offset_bottom = 92.0
+value = 100.0
+texture_progress = ExtResource("19_4i06g")
+
 [node name="FoeHealth" type="TextureRect" parent="."]
 layout_mode = 1
 offset_left = -20.0
@@ -273,4 +289,27 @@ offset_right = 280.0
 offset_bottom = 226.0
 texture = ExtResource("1_rs67o")
 
+[node name="FoePokemonLabel" type="Label" parent="FoeHealth"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 18.0
+offset_right = 108.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("4_p21ck")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("20_wj4bj")
+
+[node name="FoeHealthBar" type="TextureProgressBar" parent="FoeHealth"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 52.0
+offset_right = 186.0
+offset_bottom = 92.0
+value = 100.0
+texture_progress = ExtResource("19_4i06g")
+
 [connection signal="pressed" from="Options/Options/Fight" to="." method="_on_fight_pressed"]
+[connection signal="pressed" from="Attacks/Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="Attacks/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Attacks/Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="Attacks/Slot4" to="." method="_on_slot_4_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cndlxwgnu2xqt"]
+[gd_scene load_steps=8 format=3 uid="uid://cndlxwgnu2xqt"]
 
 [ext_resource type="Script" uid="uid://cocp22appxbx" path="res://Scripts/pokemon.gd" id="1_la3l0"]
 [ext_resource type="Texture2D" uid="uid://cm3ppnpwy1ojt" path="res://Assets/pokemon/charmander (2).png" id="2_c1d7v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bcee4kw7a52sh" path="res://Assets/pokemon/charmander (3).png" id="4_0fch5"]
 [ext_resource type="Texture2D" uid="uid://bo1qo8tk0x7px" path="res://Assets/pokemon/charmander (1).png" id="5_fb3id"]
 [ext_resource type="Texture2D" uid="uid://b0d7l7w85xj66" path="res://Assets/pokemon/charmander (4).png" id="6_hqlet"]
+[ext_resource type="PackedScene" uid="uid://dltnjr0adwqqu" path="res://Scenes/Moves/tackle.tscn" id="7_c1d7v"]
 
 [node name="Charmander" type="Node2D"]
 script = ExtResource("1_la3l0")
@@ -16,5 +17,20 @@ shiny_back_sprite = ExtResource("4_0fch5")
 shiny_front_sprite = ExtResource("5_fb3id")
 bag_sprite = ExtResource("6_hqlet")
 shiny_bag_sprite = ExtResource("6_hqlet")
+level = 5
+types = Array[String](["Fire"])
+move_slot_1 = ExtResource("7_c1d7v")
+hp_base = 39
+attack_base = 52
+defense_base = 43
+special_attack_base = 60
+special_defense_base = 50
+speed_base = 65
+hp_iv = 31
+attack_iv = 31
+defense_iv = 31
+special_attack_iv = 31
+special_defense_iv = 31
+speed_iv = 31
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -18,6 +18,7 @@ extends Node2D
 @export var level: int
 @export var evolution_level: int
 @export var evolution: Node2D
+@export var types: Array[String]
 
 #Moves
 @export var move_slot_1: PackedScene
@@ -69,9 +70,25 @@ var current_speed: int
 
 func _ready():
 	set_sprite()
+	calculate_stats()
 
 func set_sprite():
 	if is_in_party:
 		sprite_2d.texture = back_sprite
 	else:
 		sprite_2d.texture = front_sprite
+		
+func calculate_stats():
+	hp = floor(0.01 * (2 * hp_base + hp_iv + floor(0.25 * hp_ev)) * level) + level + 10
+	attack = floor(0.01 * (2 * attack_base + attack_iv + floor(0.25 * attack_ev)) * level) + 5
+	defense = floor(0.01 * (2 * defense_base + defense_iv + floor(0.25 * defense_ev)) * level) + 5
+	special_attack = floor(0.01 * (2 * special_attack_base + special_attack_iv + floor(0.25 * special_attack_ev)) * level) + 5
+	special_defense = floor(0.01 * (2 * special_defense_base + special_defense_iv + floor(0.25 * special_defense_ev)) * level) + 5
+	speed = floor(0.01 * (2 * speed_base + speed_iv + floor(0.25 * speed_ev)) * level) + 5
+	
+	current_hp = hp
+	current_attack = attack
+	current_defense = defense
+	current_special_attack = special_attack
+	current_special_defense = special_defense
+	current_speed = speed
